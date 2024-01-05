@@ -2,7 +2,6 @@
 import React, { FunctionComponent , useState} from 'react';
 import Pokemon from '../models/pokemon';
 import './pokemon-card.css';
-import PokemonList from '../pages/pokemon-list';
 import formatDate from '../helpers/format-date';
 import formatType from '../helpers/format-type';
 import { useNavigate } from 'react-router-dom';
@@ -41,7 +40,7 @@ return (
         <div className="card-stacked">
           <div className="card-content">
             <p>{pokemon.name}</p>
-            <p><small>{formatDate(pokemon.created)}</small></p>
+            <p><small>{formatDate(pokemon.created || new Date())}</small></p>
             {pokemon.types.map( type => (
                 <span key={type} className={formatType(type)}>{type}</span>
             ))}

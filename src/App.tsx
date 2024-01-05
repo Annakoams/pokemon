@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import PokemonsDetail from './pages/pokemon-detail';
 import PageNotFound from './pages/no-pages';
 import PokemonEdith from './pages/pokemon-edith';
-import NewPokemon from './pages/pokemon-create';
+import PokemonAdd from './pages/pokemon-create';
 
 
 const App: FunctionComponent = () => {
@@ -21,6 +21,7 @@ const App: FunctionComponent = () => {
                 <Routes>
                     <Route path="/" element={<PokemonList />} />
                     <Route path="/pokemons" element={<PokemonList />} />
+                    <Route path="/pokemons/add" element={<PokemonAdd />} />
                     <Route path="/pokemons/:id" element={<PokemonsDetail />} />
                     <Route path="/pokemons/edith/:id" element={<PokemonEdith />} />
                     

@@ -10,10 +10,16 @@ const PokemonDetail: FunctionComponent = () => {
   const { id } = useParams<{ id?: string }>(); // Utilisation de useParams pour obtenir les paramètres de l'URL
   const [pokemon, setPokemon] = useState<Pokemon | null>(null);
 
+
   useEffect(() => {
-    // Assurez-vous que `id` est défini avant de l'utiliser
     if (id) {
-      PokemonService.getPokemon(+id).then(pokemon => setPokemon(pokemon));
+      PokemonService.getPokemon(+id).then((pokemon) => {
+        // Assurez-vous que la propriété `created` est toujours définie
+        if (pokemon && !pokemon.created) {
+          pokemon.created = new Date();
+        }
+        setPokemon(pokemon);
+      });
     }
   }, [id]);
 
@@ -64,10 +70,12 @@ const PokemonDetail: FunctionComponent = () => {
                           ))}
                         </td>
                       </tr>
-                      <tr>
-                        <td>Date de création</td>
-                        <td>{formatDate(pokemon.created)}</td>
-                      </tr>
+                      
+                        <tr>
+                          <td>Date de création</td>
+                          <td>{pokemon.created && formatDate(pokemon.created)}</td>
+                        </tr>
+                    
                     </tbody>
                   </table>
                 </div>
