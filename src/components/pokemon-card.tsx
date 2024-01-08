@@ -8,12 +8,14 @@ import { useNavigate } from 'react-router-dom';
   
 type Props = {
   pokemon: Pokemon,
-  borderColor?: string
+  borderColor?: string,
+ 
 };
   
-const PokemonCard: FunctionComponent<Props> = ({pokemon, borderColor = '#009688'}) => {
+const PokemonCard: FunctionComponent<Props> = ({pokemon, borderColor = '#009688',}) => {
   const navigate = useNavigate();
 
+  console.log("creationDate dans le pokemon-card:", pokemon.created);
 
     const [color, setColor]= useState<string>();
 
@@ -40,7 +42,7 @@ return (
         <div className="card-stacked">
           <div className="card-content">
             <p>{pokemon.name}</p>
-            <p><small>{formatDate(pokemon.created || new Date())}</small></p>
+            <p><small>{formatDate( new Date())}</small></p>
             {pokemon.types.map( type => (
                 <span key={type} className={formatType(type)}>{type}</span>
             ))}

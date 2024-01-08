@@ -73,26 +73,39 @@
       ]
     },
     {
-      "id": 1704460477766,
-      "hp": "200",
+      "id": 1704722919633,
+      "hp": 100,
       "cp": 10,
-      "name": "new",
-      "picture": "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/005.png",
+      "name": "noweau pokemon",
+      "picture": "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/011.png",
+      "types": [
+        "Normal",
+        "Insecte",
+        "Eau"
+      ],
+      "created": "2024-01-08T14:09:14.262Z"
+},
+    {
+      "id": 1704723926501,
+      "hp": 100,
+      "cp": 10,
+      "name": "blabla",
+      "picture": "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/001.png",
       "types": [
         "Normal"
       ],
-      "created": "2024-01-05T13:14:37.766Z"
+      "created": "2024-01-08T14:25:26.501Z"
     },
     {
-      "id": 1704460514889,
-      "hp": "200",
+      "id": 1704723973452,
+      "hp": 100,
       "cp": 10,
-      "name": "second",
-      "picture": "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/010.png",
+      "name": "ggggg",
+      "picture": "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/002.png",
       "types": [
         "Normal"
       ],
-      "created": "2024-01-05T13:15:14.889Z"
+      "created": "2024-01-08T14:26:13.452Z"
     }
   ]
 }

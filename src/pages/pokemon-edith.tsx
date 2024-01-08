@@ -15,6 +15,7 @@ const PokemonEdit: FunctionComponent = () => {
         // Assurez-vous que la propriété `created` est toujours définie
         if (pokemon && !pokemon.created) {
           pokemon.created = new Date();
+          console.log("creationDate dans le pokemon-details:", pokemon.created);
         }
         setPokemon(pokemon);
       });
@@ -26,7 +27,7 @@ const PokemonEdit: FunctionComponent = () => {
       {pokemon ? (
         <div className="row">
           <h2 className="header center">Éditer {pokemon.name}</h2>
-          <PokemonForm pokemon={pokemon} isEditForm={true}  ></PokemonForm>
+          <PokemonForm pokemon={pokemon} isEditForm={true} created={pokemon.created || new Date()} ></PokemonForm>
           <Link to="/">Retour</Link>
         </div>
       ) : (

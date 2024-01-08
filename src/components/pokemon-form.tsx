@@ -9,6 +9,7 @@ import formatDate from '../helpers/format-date';
 type Props = {
   pokemon: Pokemon,
   isEditForm: boolean,
+  created: Date
 
   
 };
@@ -25,8 +26,10 @@ type Form = {
   types: Field;
 };
 
-const PokemonForm: FunctionComponent<Props> = ({ pokemon, isEditForm }) => {
+const PokemonForm: FunctionComponent<Props> = ({ pokemon, isEditForm ,created}) => {
   const navigate = useNavigate();
+
+  console.log("creationDate dans le pokemon-form:", created); 
   
   const [form, setForm] = useState<Form>({
     picture: { value: pokemon.picture ,isValid: true },
@@ -146,11 +149,16 @@ const PokemonForm: FunctionComponent<Props> = ({ pokemon, isEditForm }) => {
     e.preventDefault();
     const isFormValid = validateForm();
     if(isFormValid) {
+      
+      
       pokemon.picture = form.picture.value;
       pokemon.name = form.name.value;
       pokemon.hp = form.hp.value;
       pokemon.cp = form.cp.value;
       pokemon.types = form.types.value;
+
+     
+
       isEditForm ? updatePokemon() : addPokemon();
     }
   }
@@ -176,6 +184,7 @@ const PokemonForm: FunctionComponent<Props> = ({ pokemon, isEditForm }) => {
       console.error('Error deleting Pokemon:', error);
     }
   };
+ 
 
   return (
     <form onSubmit={(e) => handleSubmit(e)}>
@@ -248,10 +257,10 @@ const PokemonForm: FunctionComponent<Props> = ({ pokemon, isEditForm }) => {
                     </div>
                   ))}
                 </div>
-                {/* <div className='input-field col s12'>
-                    <label>Date de création</label>
-                    <input type='text' value={formatDate(created)} readOnly />
-                </div> */}
+                {isAddForm() && (<div className='input-field col s12'>
+                  <label>Date de création</label>
+                  <input type='text' value={formatDate(pokemon.created)} readOnly />
+                </div>)}
               </div>
               <div className="card-action center">
                 {/* Submit button */}
