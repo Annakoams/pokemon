@@ -5,6 +5,7 @@ import Pokemon from '../models/pokemon';
 import formatDate from '../helpers/format-date';
 import formatType from '../helpers/format-type';
 import PokemonService from '../services/pokemon-service';
+import Loader from '../components/loader';
 
 const PokemonDetail: FunctionComponent = () => {
   const { id } = useParams<{ id?: string }>(); // Utilisation de useParams pour obtenir les paramètres de l'URL
@@ -17,16 +18,16 @@ const PokemonDetail: FunctionComponent = () => {
         // Assurez-vous que la propriété `created` est toujours définie
         if (pokemon && !pokemon.created) {
           pokemon.created = new Date();
-          console.log("creationDate dans le pokemon-details:", pokemon.created);
+          
         }
         setPokemon(pokemon);
       });
     }
   }, [id]);
 
-  if (!pokemon) {
-    return <div>Loading...</div>;
-  }
+  // if (!pokemon) {
+  //   return <div><Loader/></div>;
+  // }
 
   return (
     <div>
@@ -88,7 +89,7 @@ const PokemonDetail: FunctionComponent = () => {
           </div>
         </div>
       ) : (
-        <h4 className="center">Aucun pokémon à afficher !</h4>
+        <h4 className="center"><Loader/></h4>
       )}
     </div>
   );

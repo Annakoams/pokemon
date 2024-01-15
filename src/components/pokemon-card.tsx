@@ -15,7 +15,7 @@ type Props = {
 const PokemonCard: FunctionComponent<Props> = ({pokemon, borderColor = '#009688',}) => {
   const navigate = useNavigate();
 
-  console.log("creationDate dans le pokemon-card:", pokemon.created);
+
 
     const [color, setColor]= useState<string>();
 

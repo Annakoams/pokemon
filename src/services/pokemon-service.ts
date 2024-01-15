@@ -96,6 +96,23 @@ export default class PokemonService {
       return null;
     }
   }
+  static async searchPokemon(term: string): Promise<Pokemon[]> {
+    try {
+      const response = await fetch(`http://localhost:3001/pokemons?q=${term}`);
+     
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+     
+      const data = await response.json();
+      return this.isEmpty(data) ? [] : data;
+    } catch (error) {
+      console.error('Error searching Pokemon:', error);
+      return [];
+    }
+  }
+
+ 
   
   static isEmpty(data: Object): boolean {
     return Object.keys(data).length === 0;

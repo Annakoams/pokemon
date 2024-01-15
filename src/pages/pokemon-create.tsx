@@ -7,7 +7,7 @@ const PokemonAdd: FunctionComponent = () => {
     const [id] = useState<number>(new Date().getTime());
     const [pokemon] = useState<Pokemon>(new Pokemon(id, 100, 10, '...', 'https://assets.pokemon.com/assets/cms2/img/pokedex/detail/XXX.png', ['Normal'], created));
    
-    console.log("creationDate dans le pokemon-created:", created);
+   
    
    
     return (

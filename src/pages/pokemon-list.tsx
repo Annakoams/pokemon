@@ -2,6 +2,7 @@ import React, { FunctionComponent, useState, useEffect } from 'react';
 import Pokemon from '../models/pokemon';
 import PokemonCard from '../components/pokemon-card';
 import PokemonService from '../services/pokemon-service';
+import PokemonSearch from '../components/pokemon-serch';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import formatDate from '../helpers/format-date';
@@ -9,7 +10,7 @@ import formatDate from '../helpers/format-date';
 const PokemonList: FunctionComponent = () => {
   const [pokemons, setPokemons] = useState<Pokemon[]>([]);
   const navigate = useNavigate();
-
+ 
   useEffect(() => {
     
     PokemonService.getPokemons().then(pokemons => setPokemons(pokemons))
@@ -23,6 +24,7 @@ const PokemonList: FunctionComponent = () => {
       <h1 className="center">Pokédex</h1>
       <div className="container">
         <div className="row">
+          <PokemonSearch/>
           {pokemons.map(pokemon => (
             <PokemonCard key={pokemon.id} pokemon={pokemon} />
           ))}

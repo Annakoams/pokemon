@@ -29,7 +29,7 @@ type Form = {
 const PokemonForm: FunctionComponent<Props> = ({ pokemon, isEditForm ,created}) => {
   const navigate = useNavigate();
 
-  console.log("creationDate dans le pokemon-form:", created); 
+  
   
   const [form, setForm] = useState<Form>({
     picture: { value: pokemon.picture ,isValid: true },
