@@ -30,7 +30,8 @@
       "types": [
         "Normal",
         "Vol"
-      ]
+      ],
+      "created": "2024-01-15T12:21:09.770Z"
     },
     {
       "id": 8,
@@ -84,7 +85,7 @@
         "Eau"
       ],
       "created": "2024-01-08T14:09:14.262Z"
-},
+    },
     {
       "id": 1704723926501,
       "hp": 100,
@@ -106,6 +107,17 @@
         "Normal"
       ],
       "created": "2024-01-08T14:26:13.452Z"
+    },
+    {
+      "id": 1705321500188,
+      "hp": 100,
+      "cp": 10,
+      "name": "Rigat",
+      "picture": "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/011.png",
+      "types": [
+        "Normal"
+      ],
+      "created": "2024-01-15T12:25:00.188Z"
     }
   ]
 }

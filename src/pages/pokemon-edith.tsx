@@ -29,7 +29,7 @@ const PokemonEdit: FunctionComponent = () => {
         <div className="row">
           <h2 className="header center">Éditer {pokemon.name}</h2>
           <PokemonForm pokemon={pokemon} isEditForm={true} created={pokemon.created || new Date()} ></PokemonForm>
-          <Link to="/">Retour</Link>
+          <Link to="/pokemons">Retour</Link>
         </div>
       ) : (
         <h4 className="center"><Loader/></h4>

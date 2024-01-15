@@ -20,21 +20,16 @@ const App: React.FC = () => {
           </div>
         </nav>
         <Routes>
-        {/* <Route  path="/" element={<PokemonsList />} /> */}
+          <Route path="/" element={<Login />} />
           <Route path="login" element={<Login />} />
-          <Route path=" pokemons/* " element={<PrivateRoute element={<PokemonsList />} />} />
-          <Route 
-            path="pokemon/add"
-            element={<PrivateRoute element={<PokemonAdd />} />}
-          />
-          <Route
-            path="pokemons/edit/:id"
-            element={<PrivateRoute element={<PokemonEdit />} />}
-          />
-          <Route
-            path="pokemons/:id"
-            element={<PrivateRoute element={<PokemonsDetail />} />}
-          />
+          <Route path="pokemons/*" element={<PrivateRoute />}>
+            
+            <Route index element={<PokemonsList />} />
+            <Route path="add" element={<PokemonAdd />} />
+            <Route path="edit/:id" element={<PokemonEdit />} />
+            <Route path=":id" element={<PokemonsDetail />} />
+            <Route path="*" element={<PageNotFound />} />
+          </Route>
           <Route path="*" element={<PageNotFound />} />
         </Routes>
       </div>

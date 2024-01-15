@@ -1,25 +1,41 @@
 import Pokemon from "../models/pokemon";
+import POKEMONS from "models/mock-pokemon";
 
 export default class PokemonService {
 
+  static isDev = (!process.env.NODE_ENV || process.env.NODE_ENV === 'development');
+
+  static apiUrl = PokemonService.isDev
+  ? 'http://localhost:3001/pokemons'
+  :  (process.env.REACT_APP_API_URL || 'https://default-api-url/pokemons');
+
+  static pokemons: Pokemon[] = POKEMONS;
+
+
   static async getPokemons(): Promise<Pokemon[]> {
     try {
-      const response = await fetch('http://localhost:3001/pokemons');
+      const response = await fetch(PokemonService.apiUrl);
+  
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`);
       }
-
+  
+      const contentType = response.headers.get('content-type');
+      if (!contentType || !contentType.includes('application/json')) {
+        throw new Error('Not a JSON response');
+      }
+  
       const data = await response.json();
-      return data;
+      return data as Pokemon[];
     } catch (error) {
       console.error('Error fetching Pokemons:', error);
-      return [];
+      throw error;
     }
   }
 
   static async getPokemon(id: number): Promise<Pokemon | null> {
     try {
-      const response = await fetch(`http://localhost:3001/pokemons/${id}`);
+      const response = await fetch(`${PokemonService.apiUrl}/${id}`);
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`);
       }
@@ -34,7 +50,7 @@ export default class PokemonService {
 
   static async updatePokemon(id: number, updatedPokemon: Pokemon): Promise<Pokemon | null> {
     try {
-      const response = await fetch(`http://localhost:3001/pokemons/${id}`, {
+      const response = await fetch(`${PokemonService.apiUrl}/${id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -56,7 +72,7 @@ export default class PokemonService {
 
   static async deletePokemon(id : number): Promise<Pokemon | null> {
     try {
-      const response = await fetch(`http://localhost:3001/pokemons/${id}`, {
+      const response = await fetch(`${PokemonService.apiUrl}/${id}`, {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',
@@ -77,7 +93,7 @@ export default class PokemonService {
   }
   static async addPokemon(newPokemon:Pokemon): Promise<Pokemon | null> {
     try {
-      const response = await fetch(`http://localhost:3001/pokemons`, {
+      const response = await fetch(`${PokemonService.apiUrl}`, {
         method: 'POST', 
         headers: {
           'Content-Type': 'application/json',
@@ -98,7 +114,7 @@ export default class PokemonService {
   }
   static async searchPokemon(term: string): Promise<Pokemon[]> {
     try {
-      const response = await fetch(`http://localhost:3001/pokemons?q=${term}`);
+      const response = await fetch(`${PokemonService.apiUrl}?q=${term}`);
      
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`);
