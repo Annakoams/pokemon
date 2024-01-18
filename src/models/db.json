@@ -3,13 +3,14 @@
     {
       "id": 5,
       "name": "Roucool",
-      "hp": 30,
+      "hp": "250",
       "cp": 7,
       "picture": "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/016.png",
       "types": [
         "Normal",
         "Vol"
-      ]
+      ],
+      "created": "2024-01-16T08:20:17.033Z"
     },
     {
       "id": 6,
@@ -24,7 +25,7 @@
     {
       "id": 7,
       "name": "Piafabec",
-      "hp": 14,
+      "hp": "250",
       "cp": 5,
       "picture": "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/021.png",
       "types": [
@@ -87,17 +88,6 @@
       "created": "2024-01-08T14:09:14.262Z"
     },
     {
-      "id": 1704723926501,
-      "hp": 100,
-      "cp": 10,
-      "name": "blabla",
-      "picture": "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/001.png",
-      "types": [
-        "Normal"
-      ],
-      "created": "2024-01-08T14:25:26.501Z"
-    },
-    {
       "id": 1704723973452,
       "hp": 100,
       "cp": 10,
@@ -118,6 +108,54 @@
         "Normal"
       ],
       "created": "2024-01-15T12:25:00.188Z"
+    },
+    {
+      "id": 1705392906883,
+      "hp": 100,
+      "cp": 10,
+      "name": "new",
+      "picture": "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/011.png",
+      "types": [
+        "Normal",
+        "Poison",
+        "Electrik"
+      ],
+      "created": "2024-01-16T08:15:06.883Z"
+    },
+    {
+      "id": 1705392947774,
+      "hp": 100,
+      "cp": "1",
+      "name": "new pokemon",
+      "picture": "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/011.png",
+      "types": [
+        "Normal",
+        "Poison",
+        "Fée"
+      ],
+      "created": "2024-01-16T08:15:47.774Z"
+    },
+    {
+      "id": 1705399296167,
+      "hp": 100,
+      "cp": 10,
+      "name": "anna",
+      "picture": "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/002.png",
+      "types": [
+        "Normal"
+      ],
+      "created": "2024-01-16T10:01:36.167Z"
+    },
+    {
+      "id": 1705399925870,
+      "hp": 100,
+      "cp": 10,
+      "name": "jean",
+      "picture": "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/005.png",
+      "types": [
+        "Normal"
+      ],
+      "created": "2024-01-16T10:12:05.870Z"
     }
   ]
 }
