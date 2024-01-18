@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useState } from 'react';
+import React, {  useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import AuthenticationService from '../services/authentification-service';
 
